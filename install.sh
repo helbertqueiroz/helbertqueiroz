@@ -113,6 +113,8 @@ fi
 
 echo -e "${COLOR_INFO}[*] Sign prl_disp_service${NOCOLOR}"
 
+xattr -cr /Applications/Parallels\ Desktop.app/
+
 codesign -f -s - --timestamp=none --all-architectures --entitlements "${PDFM_DISP_ENT}" "${PDFM_DISP_DST}" || { echo -e "${COLOR_ERR}error $? at line $LINENO.${NOCOLOR}"; exit $?; }
 
 echo -e "${COLOR_INFO}[*] Copy fake licenses.json${NOCOLOR}"
